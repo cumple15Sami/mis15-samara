@@ -246,3 +246,44 @@ opacity:0;
 }
 
 }
+/* TÍTULO */
+
+.titulo-principal{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    animation:aparecer 2s ease;
+}
+
+.corona{
+    font-size:42px;
+    margin-bottom:8px;
+    animation:flotar 3s ease-in-out infinite;
+    filter:drop-shadow(0 0 12px gold);
+}
+
+@keyframes flotar{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+@keyframes aparecer{
+
+0%{
+opacity:0;
+transform:translateY(-40px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
