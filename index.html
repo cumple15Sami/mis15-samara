@@ -2,442 +2,208 @@
 <html lang="es">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis 15 | Samara</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6a11cb">
 
-    <title>Mis 15 | Samara</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <meta name="theme-color" content="#6f42c1">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Pantalla de bienvenida -->
+<!-- 🌌 LOADER / PORTADA -->
+<div id="loader">
+  <div class="loader-content">
+    <p>Una noche mágica está por comenzar</p>
+    <h1>Mis 15</h1>
+    <h2>Samara</h2>
+    <button id="enterButton">Abrir invitación ✨</button>
+  </div>
+</div>
 
-    <div id="loader">
+<!-- 🏮 LÁMPARAS FLOTANTES -->
+<div class="lantern-container">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
 
-        <div class="loader-content">
+<!-- ✨ PARTÍCULAS -->
+<div class="particles"></div>
 
-            <p class="loader-small">
-                Una noche mágic está por comenzar
-            </p>
+<!-- 🌟 HERO -->
+<header class="hero">
 
-            <h1>Mis 15</h1>
+  <div class="hero-overlay"></div>
 
-            <h2>Samara</h2>
-       <button id=¨enterbutton¨>
-const enterButton = document.getElementById("enterButton");
-const loader = document.getElementById("loader");
+  <div class="hero-content">
+    <p class="subtitle">MIS 15</p>
+    <h1 class="hero-title">Samara</h1>
 
-enterButton.addEventListener("click", () => {
-  loader.style.opacity = "0";
-  loader.style.pointerEvents = "none";
+    <p class="hero-text">
+      Hay momentos que iluminan el alma para siempre.
+    </p>
 
-  setTimeout(() => {
-    loader.style.display = "none";
-  }, 600);
-});
-                Abrir invitación ✨
+    <a href="#evento" class="hero-button">Descubrir</a>
+  </div>
 
-            </button>
+</header>
 
-        </div>
+<main>
 
-    </div>
+<!-- 💌 INVITACIÓN -->
+<section id="evento" class="section">
 
-    <!-- Faroles -->
+  <div class="glass-card">
+    <h2>Estás invitado</h2>
+    <p>
+      Con mucha alegría quiero compartir contigo una noche única,
+      llena de magia, sueños y recuerdos inolvidables.
+    </p>
+  </div>
 
-    <div class="lantern-container">
+</section>
 
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </div>
-
-    <!-- Partículas -->
-
-    <div class="particles"></div>
-
-    <!-- HERO -->
-
-    <header class="hero">
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-
-            <p class="subtitle">
-
-                MIS 15
-
-            </p>
-
-            <h1 class="hero-title">
-
-                Samara
-
-            </h1>
-
-            <div class="hero-line"></div>
-
-            <p class="hero-text">
-
-                Hay momentos que iluminan nuestro corazón
-                para siempre.
-
-            </p>
-
-            <a href="#evento" class="hero-button">
-
-                Descubrir
-
-            </a>
-
-        </div>
-
-    </header>
-
-    <!-- Comienza el contenido -->
-
-    <main>
-
-        <section id="evento" class="section">
-
-            <div class="glass-card">
-
-                <span class="section-icon">
-                    ✨
-                </span>
-
-                <h2>
-
-                    Estás invitado
-
-                </h2>
-
-                <p>
-
-                    Con muchísima alegría quiero compartir contigo
-                    una noche única, llena de emociones, sueños y
-                    momentos inolvidables.
-
-                </p>
-
-            </div>
-<!-- CUENTA REGRESIVA -->
-
+<!-- ⏳ COUNTDOWN -->
 <section class="section" id="countdown">
 
-    <h2>Cuenta regresiva</h2>
+  <h2>Cuenta regresiva</h2>
 
-    <div class="timer">
-
-        <div class="time-box">
-            <span id="days">000</span>
-            <small>Días</small>
-        </div>
-
-        <div class="time-box">
-            <span id="hours">00</span>
-            <small>Horas</small>
-        </div>
-
-        <div class="time-box">
-            <span id="minutes">00</span>
-            <small>Minutos</small>
-        </div>
-
-        <div class="time-box">
-            <span id="seconds">00</span>
-            <small>Segundos</small>
-        </div>
-
+  <div class="timer">
+    <div class="time-box">
+      <span id="days">0</span>
+      <small>Días</small>
     </div>
+
+    <div class="time-box">
+      <span id="hours">0</span>
+      <small>Horas</small>
+    </div>
+
+    <div class="time-box">
+      <span id="minutes">0</span>
+      <small>Minutos</small>
+    </div>
+
+    <div class="time-box">
+      <span id="seconds">0</span>
+      <small>Segundos</small>
+    </div>
+  </div>
 
 </section>
 
-<!-- INFORMACIÓN DEL EVENTO -->
-
+<!-- 👑 EVENTO -->
 <section class="section">
 
-    <div class="glass-card">
+  <div class="glass-card">
 
-        <span class="section-icon">👑</span>
+    <h2>El Gran Día</h2>
 
-        <h2>El Gran Día</h2>
+    <p><b>Fecha:</b> 07 Noviembre 2027</p>
+    <p><b>Hora:</b> 21:00 hs</p>
+    <p><b>Lugar:</b> Salón M y M</p>
+    <p><b>Dirección:</b> Marcos Zar 656</p>
 
-        <div class="info-grid">
+    <a class="hero-button" target="_blank"
+      href="https://maps.google.com/?q=Marcos+Zar+656">
+      Cómo llegar
+    </a>
 
-            <div class="info-item">
-
-                <h3>Fecha</h3>
-
-                <p>07 de noviembre de 2027</p>
-
-            </div>
-
-            <div class="info-item">
-
-                <h3>Hora</h3>
-
-                <p>21:00 hs</p>
-
-            </div>
-
-            <div class="info-item">
-
-                <h3>Lugar</h3>
-
-                <p>Salón M y M</p>
-
-            </div>
-
-            <div class="info-item">
-
-                <h3>Dirección</h3>
-
-                <p>Marcos Zar 656</p>
-
-            </div>
-
-        </div>
-
-        <a
-        class="hero-button"
-        target="_blank"
-        href="https://maps.google.com/?q=Marcos+Zar+656">
-
-        Cómo llegar
-
-        </a>
-
-    </div>
+  </div>
 
 </section>
 
-<!-- DRESS CODE -->
-
+<!-- 👗 DRESS CODE -->
 <section class="section">
 
-    <div class="glass-card">
-
-        <span class="section-icon">✨</span>
-
-        <h2>Dress Code</h2>
-
-        <p class="dress">
-
-            Elegante
-
-        </p>
-
-        <p>
-
-            ¡Prepárate para vivir una noche inolvidable!
-
-        </p>
-
-    </div>
+  <div class="glass-card">
+    <h2>Dress Code</h2>
+    <p>Elegante ✨</p>
+  </div>
 
 </section>
 
-<!-- CONFIRMACIÓN -->
-
+<!-- 💌 CONFIRMACIÓN -->
 <section class="section">
 
-    <div class="glass-card">
+  <div class="glass-card">
+    <h2>Confirmar asistencia</h2>
 
-        <h2>Confirmar asistencia</h2>
-
-        <p>
-
-            Tu presencia hará que esta noche sea aún más especial.
-
-        </p>
-
-        <a
-        class="whatsapp-button"
-        href="https://wa.me/5492901303984?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Samara">
-
-        Confirmar por WhatsApp
-
-        </a>
-
-    </div>
-
-</section>
-<!-- GALERÍA -->
-
-<section class="section" id="galeria">
-
-    <h2>Un adelanto de este gran día</h2>
-
-    <p class="section-description">
-        Muy pronto aquí encontrarás los recuerdos más lindos de esta etapa.
-    </p>
-
-    <div class="gallery">
-
-        <div class="photo-placeholder">
-            <span>📷</span>
-            <p>Foto 1</p>
-        </div>
-
-        <div class="photo-placeholder">
-            <span>📷</span>
-            <p>Foto 2</p>
-        </div>
-
-        <div class="photo-placeholder">
-            <span>📷</span>
-            <p>Foto 3</p>
-        </div>
-
-        <div class="photo-placeholder">
-            <span>📷</span>
-            <p>Foto 4</p>
-        </div>
-
-    </div>
+    <a class="whatsapp-button"
+      href="https://wa.me/5492901303984?text=Confirmo%20mi%20asistencia%20a%20los%2015%20de%20Samara">
+      Confirmar por WhatsApp
+    </a>
+  </div>
 
 </section>
 
-<!-- MÚSICA -->
-
+<!-- 📸 GALERÍA -->
 <section class="section">
 
-    <div class="glass-card">
+  <h2>Un adelanto</h2>
 
-        <span class="section-icon">🎵</span>
+  <div class="gallery">
 
-        <h2>Nuestra canción</h2>
+    <div class="photo-placeholder">📷 Foto 1</div>
+    <div class="photo-placeholder">📷 Foto 2</div>
+    <div class="photo-placeholder">📷 Foto 3</div>
+    <div class="photo-placeholder">📷 Foto 4</div>
 
-        <p>
-
-            Mientras recorres la invitación,
-            acompáñala con una melodía muy especial.
-
-        </p>
-
-        <button id="musicButton" class="hero-button">
-
-            ▶️ Reproducir música
-
-        </button>
-
-        <audio id="music" loop>
-
-            <source src="assets/music/veo-en-ti-la-luz.mp3" type="audio/mpeg">
-
-        </audio>
-
-    </div>
+  </div>
 
 </section>
 
-<!-- FRASE -->
-
+<!-- 🎵 MÚSICA -->
 <section class="section">
 
-    <div class="glass-card">
+  <div class="glass-card">
 
-        <h2>Un sueño hecho realidad</h2>
+    <h2>Nuestra canción</h2>
 
-        <blockquote>
+    <button id="musicButton" class="hero-button">
+      ▶️ Reproducir música
+    </button>
 
-            "Algunos momentos iluminan nuestra vida para siempre,
-            y este será uno de ellos."
+    <audio id="music" loop>
+      <source src="assets/music/veo-en-ti-la-luz.mp3" type="audio/mpeg">
+    </audio>
 
-        </blockquote>
-
-    </div>
+  </div>
 
 </section>
 
-<!-- DESPEDIDA -->
+<!-- 🌹 FRASE -->
+<section class="section">
 
+  <div class="glass-card">
+    <blockquote>
+      “Algunos momentos iluminan la vida para siempre.”
+    </blockquote>
+  </div>
+
+</section>
+
+<!-- 💜 FINAL -->
 <section class="section final-section">
 
-    <h2>¡Te espero!</h2>
+  <h2>¡Te espero!</h2>
+  <p>Gracias por ser parte de este momento tan especial.</p>
+  <h3>Samara</h3>
 
-    <p>
+</section>
 
-        Gracias por formar parte de este momento tan especial.
+</main>
 
-    </p>
-
-    <h3>
-
-        Samara
-
-    </h3>
-
-</section>            
-        </section>
-<!-- FOOTER -->
-
-<footer class="footer">
-
-    <div class="footer-content">
-
-        <div class="footer-line"></div>
-
-        <p class="footer-title">
-
-            Mis 15 • Samara
-
-        </p>
-
-        <p>
-
-            07 de noviembre de 2027 · 21:00 hs
-
-        </p>
-
-        <p>
-
-            Salón M y M · Marcos Zar 656
-
-        </p>
-
-        <p class="footer-message">
-
-            Gracias por acompañarme en una noche que guardaré para siempre en mi corazón.
-
-        </p>
-
-    </div>
-
-</footer>
-
-<!-- EFECTOS VISUALES -->
-
+<!-- 🌌 EFECTOS -->
 <div class="magic-glow"></div>
-
 <div class="floating-particles"></div>
-
 <div class="light-overlay"></div>
 
 <script src="script.js"></script>
 
-</main>
-
 </body>
-
 </html>
