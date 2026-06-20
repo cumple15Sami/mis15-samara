@@ -1,92 +1,168 @@
 // =========================
-// LOADER CINEMATOGRÁFICO
+// INVITACIÓN PREMIUM SCRIPT
+// Estilo: Rapunzel / elegante lila-violeta-dorado
 // =========================
 
-const enterButton = document.getElementById("enterButton");
-const loader = document.getElementById("loader");
-
-if (enterButton && loader) {
-  enterButton.addEventListener("click", () => {
-    loader.style.transition = "opacity 1s ease";
-    loader.style.opacity = "0";
-    loader.style.pointerEvents = "none";
-
-    setTimeout(() => {
-      loader.style.display = "none";
-      document.body.classList.add("loaded");
-    }, 1000);
-  });
-}
 
 // =========================
-// CUENTA REGRESIVA PREMIUM
+// LOADER
 // =========================
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const enterButton = document.getElementById("enterButton");
 
-const targetDate = new Date("2027-11-07T21:00:00").getTime();
+  if (enterButton) {
+    enterButton.addEventListener("click", () => {
+      loader.classList.add("fade-out");
 
-const d = document.getElementById("days");
-const h = document.getElementById("hours");
-const m = document.getElementById("minutes");
-const s = document.getElementById("seconds");
-
-if (d && h && m && s) {
-  const update = () => {
-    const now = new Date().getTime();
-    const dist = targetDate - now;
-
-    if (dist <= 0) return;
-
-    d.innerText = Math.floor(dist / (1000 * 60 * 60 * 24));
-    h.innerText = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    m.innerText = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
-    s.innerText = Math.floor((dist % (1000 * 60)) / 1000);
-  };
-
-  update();
-  setInterval(update, 1000);
-}
-
-// =========================
-// MÚSICA PREMIUM (iPhone safe)
-// =========================
-
-const music = document.getElementById("music");
-const musicButton = document.getElementById("musicButton");
-
-let isPlaying = false;
-
-if (music && musicButton) {
-  musicButton.addEventListener("click", async () => {
-    try {
-      if (!isPlaying) {
-        await music.play();
-        musicButton.innerText = "🔊 Pausar música";
-        isPlaying = true;
-      } else {
-        music.pause();
-        musicButton.innerText = "▶️ Reproducir música";
-        isPlaying = false;
-      }
-    } catch (e) {
-      alert("Toca nuevamente para activar el audio 🎵");
-    }
-  });
-}
-
-// =========================
-// ANIMACIONES AL SCROLL PREMIUM
-// =========================
-
-const elements = document.querySelectorAll(".glass-card, .section, .gallery");
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, {
-  threshold: 0.15
+      setTimeout(() => {
+        loader.style.display = "none";
+        document.body.classList.add("site-visible");
+        iniciarAnimaciones();
+      }, 1200);
+    });
+  }
 });
 
-elements.forEach(el => observer.observe(el));
+
+// =========================
+// INICIALIZAR TODO
+// =========================
+function iniciarAnimaciones() {
+  iniciarScrollReveal();
+  iniciarLámparasFlotantes();
+  iniciarBrillos();
+  activarMusicaOpcional();
+}
+
+
+// =========================
+// SCROLL REVEAL SUAVE
+// =========================
+function iniciarScrollReveal() {
+  const elements = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+}
+
+
+// =========================
+// LÁMPARAS FLOTANTES ANIMADAS
+// =========================
+function iniciarLámparasFlotantes() {
+  const container = document.getElementById("lantern-container");
+  if (!container) return;
+
+  const cantidad = 12;
+
+  for (let i = 0; i < cantidad; i++) {
+    const lantern = document.createElement("div");
+    lantern.className = "lantern";
+
+    // posiciones aleatorias
+    lantern.style.left = Math.random() * 100 + "vw";
+    lantern.style.animationDuration = 8 + Math.random() * 10 + "s";
+    lantern.style.opacity = 0.4 + Math.random() * 0.6;
+    lantern.style.transform = scale(${0.6 + Math.random() * 0.8});
+
+    container.appendChild(lantern);
+  }
+}
+
+
+// =========================
+// EFECTO BRILLOS / PARTICULAS
+// =========================
+function iniciarBrillos() {
+  const canvas = document.getElementById("sparkles");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particles = [];
+
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2,
+      d: Math.random() * 1.5,
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "rgba(255, 215, 255, 0.6)";
+
+    particles.forEach((p) => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+      ctx.fill();
+    });
+
+    update();
+  }
+
+  function update() {
+    particles.forEach((p) => {
+      p.y += p.d;
+      if (p.y > canvas.height) {
+        p.y = 0;
+        p.x = Math.random() * canvas.width;
+      }
+    });
+  }
+
+  setInterval(draw, 33);
+}
+
+
+// =========================
+// MÚSICA (OPCIONAL)
+// =========================
+function activarMusicaOpcional() {
+  const musicBtn = document.getElementById("musicToggle");
+  const audio = document.getElementById("bgMusic");
+
+  if (!musicBtn || !audio) return;
+
+  let playing = false;
+
+  musicBtn.addEventListener("click", () => {
+    if (!playing) {
+      audio.play();
+      musicBtn.classList.add("active");
+      playing = true;
+    } else {
+      audio.pause();
+      musicBtn.classList.remove("active");
+      playing = false;
+    }
+  });
+}
+
+
+// =========================
+// REDIMENSION RESPONSIVE
+// =========================
+window.addEventListener("resize", () => {
+  const canvas = document.getElementById("sparkles");
+  if (!canvas) return;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
