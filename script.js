@@ -1,4 +1,4 @@
-const targetDate = new Date("2027-11-07T21:00:00").getTime();
+const targetDate = new Date("2026-11-07T21:00:00").getTime();
 
 function actualizarContador() {
 
