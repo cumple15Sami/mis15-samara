@@ -1,48 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const loader = document.getElementById("loader");
   const button = document.getElementById("enterButton");
-  const music = document.getElementById("bgMusic");
+  const music = document.getElementById("music"); // ✔️ ÚNICO ID CORRECTO
 
-  if (!loader || !button) return;
+  if (!loader || !button) {
+    console.error("Loader o botón no encontrados");
+    return;
+  }
 
   let musicStarted = false;
 
   button.addEventListener("click", () => {
 
-    // FADE CINEMATOGRÁFICO
+    // 🎬 FADE CINEMATOGRÁFICO
     loader.classList.add("fade-out");
 
     setTimeout(() => {
+
       loader.style.display = "none";
       document.body.classList.add("site-visible");
 
-      // activar animaciones globales
+      // activar animaciones si existen
       if (typeof iniciarAnimaciones === "function") {
         iniciarAnimaciones();
       }
 
-      // 🎵 MÚSICA SOLO AL CLICK (evita bloqueo autoplay)
+      // 🎵 MÚSICA SEGURA
       if (music && !musicStarted) {
+        musicStarted = true;
         music.volume = 0;
-        music.play().then(() => {
-          musicStarted = true;
 
-          // fade in de música
-          let vol = 0;
-          const fade = setInterval(() => {
-            if (vol < 1) {
-              vol += 0.05;
-              music.volume = vol;
-            } else {
-              clearInterval(fade);
-            }
-          }, 120);
+        const playPromise = music.play();
 
-        }).catch(() => {
-          console.log("Autoplay bloqueado (normal en navegadores)");
-        });
+        if (playPromise) {
+          playPromise.then(() => {
+            let vol = 0;
+
+            const fade = setInterval(() => {
+              if (vol < 1) {
+                vol += 0.05;
+                music.volume = vol;
+              } else {
+                clearInterval(fade);
+              }
+            }, 100);
+          }).catch(err => {
+            console.log("Autoplay bloqueado:", err);
+          });
+        }
       }
 
     }, 1400);
   });
+
 });
