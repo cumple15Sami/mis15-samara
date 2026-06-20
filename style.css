@@ -80,21 +80,37 @@ body{
 }
 
 .btn{
-    display:inline-block;
-    margin-top:35px;
-    background:#fff;
-    color:#6c46bb;
-    padding:16px 38px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:bold;
-    transition:.3s;
-}
 
+display:inline-block;
+
+margin-top:35px;
+
+padding:16px 42px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+font-size:17px;
+
+color:#5a2c8d;
+
+background:linear-gradient(45deg,#fff,#ffeaa7);
+
+box-shadow:0 0 25px rgba(255,215,0,.35);
+
+transition:.35s;
+
+}
 .btn:hover{
-    transform:scale(1.05);
-}
 
+transform:translateY(-4px) scale(1.06);
+
+box-shadow:0 0 40px gold;
+
+}
 section{
     padding:90px 20px;
     text-align:center;
@@ -289,6 +305,7 @@ opacity:0;
     align-items:center;
     animation:aparecer 2s ease;
 }
+position:relative;
 
 .corona{
     font-size:42px;
@@ -355,6 +372,123 @@ transform:translateX(-50%) scale(1);
 
 50%{
 transform:translateX(-50%) scale(1.15);
+}
+
+}
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 30px 70px rgba(0,0,0,.40),
+
+0 0 50px rgba(255,215,0,.35);
+
+}
+/* ANIMACIÓN DE SECCIONES */
+
+section{
+
+opacity:0;
+
+transform:translateY(80px);
+
+animation:mostrar 1s ease forwards;
+
+}
+
+section:nth-of-type(1){animation-delay:.2s;}
+section:nth-of-type(2){animation-delay:.4s;}
+section:nth-of-type(3){animation-delay:.6s;}
+section:nth-of-type(4){animation-delay:.8s;}
+section:nth-of-type(5){animation-delay:1s;}
+section:nth-of-type(6){animation-delay:1.2s;}
+
+@keyframes mostrar{
+
+from{
+
+opacity:0;
+
+transform:translateY(80px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+h2{
+
+font-family:'Cinzel',serif;
+
+font-size:42px;
+
+letter-spacing:3px;
+
+margin-bottom:20px;
+
+color:#fff;
+
+text-shadow:
+
+0 0 15px rgba(255,215,0,.5);
+
+}
+h3{
+
+font-size:24px;
+
+margin-top:25px;
+
+color:#ffe27a;
+
+}
+.titulo-principal::before{
+
+content:"";
+
+position:absolute;
+
+width:220px;
+height:220px;
+
+background:radial-gradient(circle,
+rgba(255,215,0,.35),
+transparent 70%);
+
+top:-70px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+filter:blur(20px);
+
+z-index:-1;
+
+animation:pulso 4s infinite;
+
+}
+
+@keyframes pulso{
+
+0%,100%{
+
+transform:translateX(-50%) scale(1);
+
+}
+
+50%{
+
+transform:translateX(-50%) scale(1.2);
+
 }
 
 }
