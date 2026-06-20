@@ -55,7 +55,7 @@ body{
     z-index:2;
     max-width:700px;
 }
-
+animation:entradaHero 2s ease;
 .hero h1{
     font-family:'Cinzel',serif;
     font-size:70px;
@@ -531,6 +531,19 @@ transform:rotate(0deg) translateY(0);
 
 50%{
 transform:rotate(6deg) translateY(-8px);
+}
+
+}
+@keyframes entradaHero{
+
+0%{
+opacity:0;
+transform:translateY(50px) scale(.95);
+}
+
+100%{
+opacity:1;
+transform:translateY(0) scale(1);
 }
 
 }
