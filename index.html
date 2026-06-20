@@ -1,210 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div class="titulo-principal">
-    <div class="corona">👑</div>
-    <h1>Samara</h1>
-</div>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis 15 | Samara</title>
+
+    <meta name="theme-color" content="#6f42c1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-  <div class="flores flor-superior-izquierda">🌸</div>
-<div class="flores flor-superior-derecha">🌸</div>
-<div class="flores flor-inferior-izquierda">🌸</div>
-<div class="flores flor-inferior-derecha">🌸</div>
-<div class="lanterns">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-  <div class="stars">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-<div id="loader">
-  
-</div>
 
-<header class="hero">
+    <!-- Pantalla de bienvenida -->
 
-<div class="overlay"></div>
+    <div id="loader">
 
-<div class="hero-content">
+        <div class="loader-content">
 
-<h2>Mis 15</h2>
+            <p class="loader-small">
+                Una noche mágica está por comenzar
+            </p>
 
-<h1>Samara</h1>
+            <h1>Mis 15</h1>
 
-<p>
-Hay una luz que ilumina nuestros sueños y nos guía hacia los momentos más especiales.
-</p>
+            <h2>Samara</h2>
 
-<p class="fecha">
-07 • Noviembre • 2026
-</p>
+            <button id="enterButton">
 
-<a href="#bienvenida" class="btn">
-Descubrir
-</a>
+                Abrir invitación ✨
 
-</div>
+            </button>
 
-</header>
+        </div>
 
-<section id="bienvenida">
+    </div>
 
-<h2>¡Estás Invitado!</h2>
+    <!-- Faroles -->
 
-<p>
+    <div class="lantern-container">
 
-Con mucha alegría quiero invitarte a compartir una noche mágica e inolvidable.
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
-</p>
+    </div>
 
-</section>
+    <!-- Partículas -->
 
-<section id="evento">
+    <div class="particles"></div>
 
-<div class="card">
+    <!-- HERO -->
 
-<h3>📅 Fecha</h3>
+    <header class="hero">
 
-<p>Domingo 7 de noviembre de 2026</p>
+        <div class="hero-overlay"></div>
 
-<h3>🕘 Hora</h3>
+        <div class="hero-content">
 
-<p>21:00 hs</p>
+            <p class="subtitle">
 
-<h3>📍 Lugar</h3>
+                MIS 15
 
-<p>Salón M y M</p>
+            </p>
 
-<p>Marcos Zar 656</p>
+            <h1 class="hero-title">
 
-<a
-class="btn"
-target="_blank"
-href="https://www.google.com/maps/search/Marcos+Zar+656">
+                Samara
 
-Cómo llegar
+            </h1>
 
-</a>
+            <div class="hero-line"></div>
 
-</div>
+            <p class="hero-text">
 
-</section>
+                Hay momentos que iluminan nuestro corazón
+                para siempre.
 
-<section id="contador">
+            </p>
 
-<h2>Cuenta Regresiva</h2>
+            <a href="#evento" class="hero-button">
 
-<div class="countdown">
+                Descubrir
 
-<div>
+            </a>
 
-<span id="days">0</span>
+        </div>
 
-<p>Días</p>
+    </header>
 
-</div>
+    <!-- Comienza el contenido -->
 
-<div>
+    <main>
 
-<span id="hours">0</span>
+        <section id="evento" class="section">
 
-<p>Horas</p>
+            <div class="glass-card">
 
-</div>
+                <span class="section-icon">
+                    ✨
+                </span>
 
-<div>
+                <h2>
 
-<span id="minutes">0</span>
+                    Estás invitado
 
-<p>Minutos</p>
+                </h2>
 
-</div>
+                <p>
 
-<div>
+                    Con muchísima alegría quiero compartir contigo
+                    una noche única, llena de emociones, sueños y
+                    momentos inolvidables.
 
-<span id="seconds">0</span>
+                </p>
 
-<p>Segundos</p>
+            </div>
 
-</div>
-
-</div>
-
-</section>
-
-<section id="dress">
-
-<h2>Dress Code</h2>
-
-<p>Elegante</p>
-
-</section>
-
-<section id="gallery">
-
-<h2>Galería</h2>
-
-<p>
-
-Muy pronto descubrirás algunos recuerdos de Samara.
-
-</p>
-
-</section>
-
-<section id="confirmar">
-
-<h2>Confirmar asistencia</h2>
-
-<a
-
-class="whatsapp"
-
-href="https://wa.me/5492901303984?text=Hola%20😊%20Confirmo%20mi%20asistencia%20a%20los%2015%20de%20Samara."
-
-target="_blank">
-
-Confirmar por WhatsApp
-
-</a>
-
-</section>
-
-<footer>
-
-<p>
-
-Gracias por acompañarme en este momento tan especial.
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+        </section>
