@@ -1,124 +1,28 @@
-/* =========================
-   CINEMATIC LOADER OVERLAY
-========================= */
-.cinema-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center,
-    rgba(138, 43, 226, 0.25),
-    rgba(0, 0, 0, 0.95));
-  animation: slowGlow 6s ease-in-out infinite;
-}
-
-@keyframes slowGlow {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; }
-}
-
-/* =========================
-   TEXTOS CINEMÁTICOS
-========================= */
-.loader-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  animation: fadeInText 2.5s ease forwards;
-}
-
-.subtitle {
-  font-size: 1rem;
-  opacity: 0.7;
-  letter-spacing: 2px;
-}
-
-.title {
-  font-size: 3.5rem;
-  margin-top: 10px;
-  background: linear-gradient(90deg, #d4af37, #c084fc, #fff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glowTitle 3s infinite alternate;
-}
-
-.name {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #fff;
-  opacity: 0.9;
-}
-
-@keyframes glowTitle {
-  from { text-shadow: 0 0 10px rgba(212,175,55,0.3); }
-  to { text-shadow: 0 0 25px rgba(138,43,226,0.7); }
-}
-
-@keyframes fadeInText {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* =========================
-   BOTÓN DORADO PREMIUM
-========================= */
-.glow-btn {
-  padding: 14px 30px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 16px;
-  color: white;
-
-  background: linear-gradient(135deg, #d4af37, #8a2be2);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-/* brillo animado */
-.glow-btn::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.4),
-    transparent
-  );
-  transform: rotate(25deg);
-  animation: shine 3s infinite;
-}
-
-@keyframes shine {
-  0% { transform: translateX(-100%) rotate(25deg); }
-  100% { transform: translateX(100%) rotate(25deg); }
-}
-
-.glow-btn:hover {
-  transform: scale(1.05);
-}
-
-/* =========================
-   FADE CINEMATOGRÁFICO
-========================= */
+/* FADE CINEMATOGRÁFICO */
 #loader.fade-out {
-  animation: cinematicFade 1.5s ease forwards;
+  animation: cinematicFade 1.4s ease forwards;
 }
 
 @keyframes cinematicFade {
   0% {
     opacity: 1;
+    transform: scale(1);
     filter: blur(0);
   }
   100% {
     opacity: 0;
-    filter: blur(12px);
     transform: scale(1.1);
+    filter: blur(12px);
   }
 }
 
+/* BOTÓN GLOW */
+.glow-btn {
+  background: linear-gradient(135deg, #d4af37, #8a2be2);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  transition: 0.3s;
+}
+
+.glow-btn:hover {
+  transform: scale(1.05);
+}
