@@ -1,651 +1,251 @@
-/*==================================================
-        MIS 15 - SAMARA
-        Versión Premium 2.0
-==================================================*/
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-:root{
-
-    --violeta:#6C3BB8;
-    --violeta-oscuro:#2F174D;
-    --lavanda:#CDB6F6;
-    --dorado:#F5D36B;
-    --blanco:#FFFFFF;
-    --cristal:rgba(255,255,255,.12);
-
-}
-
-body{
-
-    font-family:'Montserrat',sans-serif;
-
-    color:var(--blanco);
-
-    background:
-    radial-gradient(circle at top,#ffe8a660,transparent 30%),
-    linear-gradient(
-        180deg,
-        #22113b 0%,
-        #47266f 30%,
-        #7442b6 60%,
-        #a97ce4 85%,
-        #efd9ff 100%
-    );
-
-    overflow-x:hidden;
-
-}
-
-/*==========================
-        LOADER
-===========================*/
-
-#loader{
-
-position:fixed;
-
-inset:0;
-
-background:#20113c;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-z-index:9999;
-
-transition:1s;
-
-}
-
-.loader-content{
-
-text-align:center;
-
-padding:40px;
-
-}
-
-.loader-small{
-
-letter-spacing:4px;
-
-text-transform:uppercase;
-
-margin-bottom:20px;
-
-color:#F5D36B;
-
-font-size:.9rem;
-
-}
-
-.loader-content h1{
-
-font-family:'Cinzel',serif;
-
-font-size:5rem;
-
-margin-bottom:10px;
-
-}
-
-.loader-content h2{
-
-font-family:'Cinzel',serif;
-
-font-size:2.8rem;
-
-color:#F5D36B;
-
-margin-bottom:35px;
-
-}
-
-#enterButton{
-
-padding:16px 42px;
-
-border:none;
-
-border-radius:50px;
-
-background:linear-gradient(45deg,#F5D36B,#FFE89D);
-
-color:#3a2460;
-
-font-weight:700;
-
-font-size:1rem;
-
-cursor:pointer;
-
-transition:.35s;
-
-box-shadow:0 10px 35px rgba(245,211,107,.4);
-
-}
-
-#enterButton:hover{
-
-transform:translateY(-4px);
-
-box-shadow:0 15px 45px rgba(245,211,107,.7);
-    /*====================================
-            HERO
-=====================================*/
-
-.hero{
-
-    min-height:100vh;
-
-    position:relative;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:40px 20px;
-
-    overflow:hidden;
-
-}
-
-/* Resplandor superior */
-
-.hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:900px;
-    height:900px;
-
-    top:-550px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    background:radial-gradient(circle,
-    rgba(245,211,107,.45),
-    transparent 70%);
-
-    filter:blur(40px);
-
-    animation:solGlow 8s ease-in-out infinite;
-
-}
-
-@keyframes solGlow{
-
-    0%,100%{
-        transform:translateX(-50%) scale(1);
-    }
-
-    50%{
-        transform:translateX(-50%) scale(1.15);
-    }
-
-}
-
-.hero-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:linear-gradient(
-        rgba(20,10,40,.35),
-        rgba(20,10,40,.55)
-    );
-
-}
-
-.hero-content{
-
-    position:relative;
-
-    z-index:5;
-
-    max-width:900px;
-
-    animation:fadeHero 2s ease;
-
-}
-
-@keyframes fadeHero{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(50px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-.subtitle{
-
-    color:var(--dorado);
-
-    letter-spacing:10px;
-
-    font-size:.95rem;
-
-    text-transform:uppercase;
-
-}
-
-.hero-title{
-
-    font-family:'Cinzel',serif;
-
-    font-size:clamp(4rem,10vw,7rem);
-
-    margin-top:15px;
-
-    text-shadow:
-        0 0 25px rgba(245,211,107,.35);
-
-}
-
-.hero-line{
-
-    width:140px;
-
-    height:3px;
-
-    margin:30px auto;
-
-    border-radius:20px;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        var(--dorado),
-        transparent
-    );
-
-}
-
-.hero-text{
-
-    max-width:700px;
-
-    margin:auto;
-
-    line-height:1.9;
-
-    font-size:1.15rem;
-
-    opacity:.95;
-
-}
-
-.hero-button{
-
-    display:inline-block;
-
-    margin-top:45px;
-
-    padding:18px 48px;
-
-    border-radius:50px;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    color:#3b255d;
-
-    background:linear-gradient(
-        45deg,
-        #fff,
-        #ffe89d
-    );
-
-    box-shadow:
-        0 15px 40px rgba(245,211,107,.35);
-
-    transition:.35s;
-
-}
-
-.hero-button:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:
-        0 20px 55px rgba(245,211,107,.55);
-
-}
 /* =========================
-   SECCIÓN DETALLES (INFO)
+   RESET BÁSICO
 ========================= */
-
-.detalles {
-  background: linear-gradient(135deg, #ffffff, #f7f3ff);
-  padding: 60px 20px;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.detalles h2 {
-  font-size: 2rem;
-  color: #4b2e83;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  background: #0b0613;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-.detalles p {
-  font-size: 1.1rem;
-  color: #555;
-  max-width: 600px;
-  margin: 0 auto 10px auto;
-  line-height: 1.6;
+.site-visible {
+  animation: fadeInSite 1.2s ease forwards;
 }
 
-/* =========================
-   CUENTA REGRESIVA
-========================= */
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 25px;
-  flex-wrap: wrap;
-}
-
-.countdown div {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px 20px;
-  min-width: 80px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.countdown div span {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #4b2e83;
-}
-
-.countdown div small {
-  font-size: 0.8rem;
-  color: #777;
-}
-
-/* =========================
-   BOTONES ELEGANTES
-========================= */
-
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  margin: 10px;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: white;
-  box-shadow: 0 8px 20px rgba(37, 117, 252, 0.3);
-}
-[10:05 p. m., 19/6/2026] Mica: /* =========================
-   SECCIÓN DETALLES (INFO)
-========================= */
-
-.detalles {
-  background: linear-gradient(135deg, #ffffff, #f7f3ff);
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.detalles h2 {
-  font-size: 2rem;
-  color: #4b2e83;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-}
-
-.detalles p {
-  font-size: 1.1rem;
-  color: #555;
-  max-width: 600px;
-  margin: 0 auto 10px auto;
-  line-height: 1.6;
-}
-
-/* =========================
-   CUENTA REGRESIVA
-========================= */
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 25px;
-  flex-wrap: wrap;
-}
-
-.countdown div {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px 20px;
-  min-width: 80px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.coun…
-[10:06 p. m., 19/6/2026] Mica: /* =========================
-   ANIMACIONES SUAVES
-========================= */
-
-@keyframes fadeInUp {
+@keyframes fadeInSite {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    filter: blur(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    filter: blur(0);
   }
 }
 
-.fade-in {
-  animation: fadeInUp 1s ease forwards;
-}
 
 /* =========================
-   EFECTO GLASS (LUJOSO)
+   LOADER PREMIUM
 ========================= */
-
-.glass {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* =========================
-   SECCIÓN FINAL / RSVP
-========================= */
-
-.rsvp {
-  padding: 60px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #fdfbff, #f3f0ff);
-}
-
-.rsvp h2 {
-  font-size: 2rem;
-  color: #4b2e83;
-  margin-bottom: 10px;
-}
-
-.rsvp p {
-  color: #666;
-  margin-bottom: 25px;
-}
-
-/* =========================
-   INPUTS ESTILIZADOS
-========================= */
-
-input, select, textarea {
-  width: 100%;
-  max-width: 400px;
-  padding: 12px 15px;
-  margin: 10px auto;
-  display: block;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  outline: none;
-  transition: 0.3s;
-}
-
-input:focus, select:focus, textarea:focus {
-  border-color: #6a11cb;
-  box-shadow: 0 0 10px rgba(106, 17, 203, 0.2);
-}
-
-/* =========================
-   RESPONSIVE (IPHONE FRIENDLY)
-========================= */
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .hero {
-    padding: 80px 15px;
-  }
-
-  .countdown {
-    gap: 10px;
-  }
-
-  .countdown div {
-    min-width: 70px;
-    padding: 12px;
-  }
-
-  .btn {
-    width: 90%;
-    max-width: 300px;
-  }
-}
-/* =========================
-   NAVBAR ELEGANTE (FIJA)
-========================= */
-
-.navbar {
+#loader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 15px 20px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  inset: 0;
+  background: radial-gradient(circle at top, #2a0f3d, #0b0613);
   display: flex;
   justify-content: center;
-  gap: 25px;
-  z-index: 1000;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
 }
 
-.navbar a {
-  text-decoration: none;
-  color: #4b2e83;
-  font-weight: 600;
-  transition: 0.3s;
-  font-size: 0.95rem;
+#enterButton {
+  padding: 15px 35px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #d4af37, #8a2be2);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+  transition: 0.3s ease;
 }
 
-.navbar a:hover {
-  color: #6a11cb;
+#enterButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(138, 43, 226, 0.6);
 }
+
+#loader.fade-out {
+  opacity: 0;
+  transition: 1s ease;
+  pointer-events: none;
+}
+
 
 /* =========================
-   SCROLL SUAVE GLOBAL
+   FONDO MAGICO
 ========================= */
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* =========================
-   PARTICULAS / FONDO ANIMADO SUAVE
-========================= */
-
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, rgba(106,17,203,0.15), transparent 40%),
-              radial-gradient(circle at 80% 30%, rgba(37,117,252,0.15), transparent 40%),
-              radial-gradient(circle at 50% 80%, rgba(255,255,255,0.1), transparent 50%);
-  z-index: -1;
-  animation: moveBg 12s ease-in-out infinite alternate;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(138, 43, 226, 0.2), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.15), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(255, 182, 193, 0.1), transparent 50%);
+  z-index: -2;
 }
 
-@keyframes moveBg {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
-  }
-}
 
 /* =========================
-   TOQUES FINALES PRO
+   PARTÍCULAS CANVAS
 ========================= */
-
-section {
-  scroll-margin-top: 80px;
+#sparkles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 }
 
-::selection {
-  background: #6a11cb;
+
+/* =========================
+   LÁMPARAS FLOTANTES
+========================= */
+#lantern-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.lantern {
+  position: absolute;
+  width: 25px;
+  height: 35px;
+  background: radial-gradient(circle, #ffd89b, #8a2be2);
+  border-radius: 50% 50% 45% 45%;
+  filter: blur(0.5px);
+  opacity: 0.7;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(-120vh);
+  }
+}
+
+
+/* =========================
+   SECCIONES REVEAL
+========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================
+   HERO / PORTADA
+========================= */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(11,6,19,0.9));
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #d4af37, #c084fc, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowText 3s infinite alternate;
+}
+
+@keyframes glowText {
+  from {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  }
+  to {
+    text-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
+  }
+}
+
+.hero p {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+
+/* =========================
+   BOTÓN MÚSICA
+========================= */
+#musicToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(138, 43, 226, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
+  padding: 12px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  z-index: 1000;
 }
 
+#musicToggle.active {
+  background: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  transform: scale(1.1);
+}
+
+
+/* =========================
+   TARJETAS PREMIUM
+========================= */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 20px;
+  margin: 20px;
+  transition: 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+
+/* =========================
+   BOTONES GENERALES
+========================= */
+button {
+  font-family: inherit;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  #enterButton {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
 }
