@@ -492,3 +492,45 @@ transform:translateX(-50%) scale(1.2);
 }
 
 }
+/* FLORES */
+
+.flores{
+    position:fixed;
+    font-size:55px;
+    opacity:.35;
+    z-index:2;
+    pointer-events:none;
+    animation:florFlota 6s ease-in-out infinite;
+}
+
+.flor-superior-izquierda{
+    top:20px;
+    left:20px;
+}
+
+.flor-superior-derecha{
+    top:20px;
+    right:20px;
+}
+
+.flor-inferior-izquierda{
+    bottom:20px;
+    left:20px;
+}
+
+.flor-inferior-derecha{
+    bottom:20px;
+    right:20px;
+}
+
+@keyframes florFlota{
+
+0%,100%{
+transform:rotate(0deg) translateY(0);
+}
+
+50%{
+transform:rotate(6deg) translateY(-8px);
+}
+
+}
