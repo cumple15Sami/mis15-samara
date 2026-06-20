@@ -7,21 +7,27 @@
 // =========================
 // LOADER
 // =========================
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
   const enterButton = document.getElementById("enterButton");
 
-  if (enterButton) {
-    enterButton.addEventListener("click", () => {
-      loader.classList.add("fade-out");
-
-      setTimeout(() => {
-        loader.style.display = "none";
-        document.body.classList.add("site-visible");
-        iniciarAnimaciones();
-      }, 1200);
-    });
+  if (!loader || !enterButton) {
+    console.error("❌ Loader o botón no encontrados");
+    return;
   }
+
+  enterButton.addEventListener("click", () => {
+    loader.classList.add("fade-out");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.body.classList.add("site-visible");
+
+      if (typeof iniciarAnimaciones === "function") {
+        iniciarAnimaciones();
+      }
+    }, 1000);
+  });
 });
 
 
