@@ -1,101 +1,74 @@
 // =========================
-// CUENTA REGRESIVA REAL
+// LOADER (ENTRADA)
 // =========================
 
-const targetDate = new Date("2026-12-15T20:00:00").getTime(); // cambia la fecha del evento
+const enterButton = document.getElementById("enterButton");
+const loader = document.getElementById("loader");
 
-const countdown = setInterval(() => {
-  const now = new Date().getTime();
-  const distance = targetDate - now;
+if (enterButton && loader) {
+  enterButton.addEventListener("click", () => {
+    loader.style.opacity = "0";
+    loader.style.pointerEvents = "none";
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("days").innerText = days;
-  document.getElementById("hours").innerText = hours;
-  document.getElementById("minutes").innerText = minutes;
-  document.getElementById("seconds").innerText = seconds;
-
-  if (distance < 0) {
-    clearInterval(countdown);
-    document.querySelector(".countdown").innerHTML = "¡Es hoy el gran día! 🎉";
-  }
-}, 1000);
-
-// =========================
-// SCROLL SUAVE (EXTRA)
-// =========================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 600);
   });
-});
+}
 
 // =========================
-// MÚSICA DE FONDO
+// CUENTA REGRESIVA
 // =========================
 
-const music = new Audio("musica.mp3"); // poné tu archivo de música
-music.loop = true;
-music.volume = 0.5;
+const targetDate = new Date("2027-11-07T21:00:00").getTime();
 
-const musicBtn = document.getElementById("musicBtn");
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
 
-if (musicBtn) {
-  musicBtn.addEventListener("click", () => {
+if (daysEl && hoursEl && minutesEl && secondsEl) {
+  const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+      clearInterval(countdown);
+      daysEl.innerText = "0";
+      hoursEl.innerText = "0";
+      minutesEl.innerText = "0";
+      secondsEl.innerText = "0";
+      return;
+    }
+
+    daysEl.innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+    hoursEl.innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    minutesEl.innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    secondsEl.innerText = Math.floor((distance % (1000 * 60)) / 1000);
+  }, 1000);
+}
+
+// =========================
+// MÚSICA
+// =========================
+
+const music = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
+
+if (music && musicButton) {
+  musicButton.addEventListener("click", () => {
     if (music.paused) {
       music.play();
-      musicBtn.innerText = "🔊 Música ON";
+      musicButton.innerText = "🔊 Pausar música";
     } else {
       music.pause();
-      musicBtn.innerText = "🔇 Música OFF";
+      musicButton.innerText = "▶️ Reproducir música";
     }
   });
 }
 
 // =========================
-// ANIMACIÓN AL HACER SCROLL
+// RSVP (WHATSAPP YA MANEJA TODO)
 // =========================
 
-const elements = document.querySelectorAll(".fade-in");
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-}, {
-  threshold: 0.2
-});
-
-elements.forEach(el => {
-  el.style.opacity = 0;
-  el.style.transform = "translateY(30px)";
-  el.style.transition = "all 0.8s ease";
-  observer.observe(el);
-});
-
-// =========================
-// RSVP FORM (MENSAJE)
-// =========================
-
-const form = document.getElementById("rsvpForm");
-
-if (form) {
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    alert("¡Gracias por confirmar tu asistencia! 💌");
-
-    form.reset();
-  });
-}
+// (no necesario JS aquí, ya está perfecto con WhatsApp)
