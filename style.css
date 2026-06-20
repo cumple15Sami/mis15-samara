@@ -9,23 +9,39 @@ html{
 }
 
 body{
+    margin:0;
     font-family:'Poppins',sans-serif;
-    background:linear-gradient(180deg,#5e3a9c,#8f63d8,#f7ecff);
     color:white;
     overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at top,#ffd76a55 0%,transparent 35%),
+    linear-gradient(
+        180deg,
+        #2d1657 0%,
+        #5c2d91 25%,
+        #8d5edb 55%,
+        #d9b5ff 85%,
+        #ffe5c2 100%
+    );
+
+    background-attachment:fixed;
 }
 
 .hero{
     min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
-    padding:30px;
+
     position:relative;
-    background:
-    radial-gradient(circle at top,#ffd76a33,transparent 40%),
-    linear-gradient(180deg,#5e3a9c,#8f63d8,#d9b8ff);
+
+    overflow:hidden;
+
+    padding:30px;
 }
 
 .overlay{
@@ -85,12 +101,31 @@ section{
 }
 
 .card{
-    max-width:700px;
-    margin:auto;
-    background:rgba(255,255,255,.15);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    padding:40px;
+
+max-width:750px;
+
+margin:auto;
+
+padding:45px;
+
+border-radius:28px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.25);
+
+box-shadow:
+
+0 20px 60px rgba(0,0,0,.30),
+
+0 0 30px rgba(255,215,0,.15);
+
+transition:.4s;
+
 }
 
 .countdown{
@@ -284,6 +319,42 @@ transform:translateY(-40px);
 100%{
 opacity:1;
 transform:translateY(0);
+}
+
+}
+/* BRILLO DEL CIELO */
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:700px;
+height:700px;
+
+background:radial-gradient(circle,#ffd54f55,transparent 70%);
+
+top:-250px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+filter:blur(25px);
+
+animation:sol 8s ease-in-out infinite;
+
+}
+
+@keyframes sol{
+
+0%,100%{
+transform:translateX(-50%) scale(1);
+}
+
+50%{
+transform:translateX(-50%) scale(1.15);
 }
 
 }
